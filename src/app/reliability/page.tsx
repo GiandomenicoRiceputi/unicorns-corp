@@ -1,12 +1,15 @@
 import React from "react";
-import Link from "next/link";
+import reliabilityImage from "public/reliability.jpg";
+import Hero from "@/components/Hero";
 
 const ReliabilityPage = () => {
   return (
     <>
-      <div>
-        <h1>Hello I am a Reliability Page</h1>
-      </div>
+      <Hero
+        src={reliabilityImage}
+        alt="welding"
+        title="Super high reliability hosting"
+      />
     </>
   );
 };

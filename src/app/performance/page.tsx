@@ -1,10 +1,15 @@
 import React from "react";
-import Link from "next/link";
+import performanceImage from "public/performance.jpg";
+import Hero from "@/components/Hero";
 
 const PerformancePage = () => {
   return (
     <>
-      <h1>Hello I am a Performance Page</h1>
+      <Hero
+        src={performanceImage}
+        alt="welding"
+        title="We serve high performance applications"
+      />
     </>
   );
 };

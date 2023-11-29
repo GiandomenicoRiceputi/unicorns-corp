@@ -1,10 +1,15 @@
 import React from "react";
-import Link from "next/link";
+import scaleImage from "public/scale.jpg";
+import Hero from "@/components/Hero";
 
 const ScalePage = () => {
   return (
     <>
-      <h1>Hello I am a Scale page</h1>
+      <Hero
+        src={scaleImage}
+        alt="steel factory"
+        title="Scale your business with us"
+      />
     </>
   );
 };
