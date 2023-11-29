@@ -17,25 +17,22 @@ const links: LinkProps[] = [
   { href: "/scale", label: "Scale" },
 ];
 
-// Function to generate links for navigation bar.
-const renderLink = (title: string, href: string, className: string) => (
-  <Link key={`${href} + ${title}`} href={href}>
-    <span title={title} className={`${className} py-2 block`}>
-      {title}
-    </span>
-  </Link>
-);
-
 // Header component containing navigation links.
 const Header: FC = () => {
   // State to handle opening and closing of the mobile menu
   const [isOpen, setOpen] = useState(false);
 
   return (
-    <nav className="relative flex items-center justify-between px-8 py-4 bg-gradient-to-r from-gray-900 to-blue-950">
+    <nav className="relative flex items-center justify-between px-8 py-4 bg-gradient-to-r from-gray-900 to-gray-700">
       <div className="text-2xl font-bold text-white">Logo</div>
       <div className="hidden md:flex space-x-8">
-        {links.map(({ href, label }) => renderLink(label, href, "text-white"))}
+        {links.map(({ href, label }) => (
+          <Link key={href} href={href}>
+            <span className="py-2 block text-white cursor-pointer">
+              {label}
+            </span>
+          </Link>
+        ))}
       </div>
       <button
         className="md:hidden rounded-lg text-white focus:outline-none focus:shadow-outline"
@@ -44,9 +41,15 @@ const Header: FC = () => {
         {isOpen ? "Close" : "Menu"}
       </button>
       {isOpen && (
-        <div className="absolute top-full left-0 w-full bg-gradient-to-r from-gray-900 to-blue-950 md:hidden">
-          <div className="p-4 space-y-4 text-right text-white">
-            {links.map(({ href, label }) => renderLink(label, href, ""))}
+        <div className="absolute top-full left-0 w-full bg-gradient-to-r from-gray-900 to-gray-700 md:hidden">
+          <div className="p-4 space-y-4 text-right">
+            {links.map(({ href, label }) => (
+              <Link key={href} href={href}>
+                <span className="py-2 block text-white cursor-pointer">
+                  {label}
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
       )}
