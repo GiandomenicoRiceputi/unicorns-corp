@@ -6,15 +6,22 @@ interface HeroProps {
   src: StaticImageData;
   alt: string;
   title: string;
+  blurDataURL: string;
 }
 
 const imageStyle: React.CSSProperties = { objectFit: "cover" };
 
-const Hero = ({ src, title, alt }: HeroProps) => {
+const Hero = ({ src, title, alt, blurDataURL }: HeroProps) => {
   return (
     <div className="relative h-screen flex items-center justify-center">
       <div className="absolute -z-10 inset-0">
-        <Image src={src} alt={alt} fill style={imageStyle} />
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          style={imageStyle}
+          blurDataURL={blurDataURL}
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900"></div>
       </div>
       <div className="relative px-4 text-center">
